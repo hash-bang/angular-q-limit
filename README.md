@@ -6,6 +6,12 @@ One of my biggest gripes with the [Angular $q](https://github.com/angular/angula
 
 This module adds the `$q.allLimit()` function which provides the same functionality as the regular `$q.all()` function but only allows a limited number of Promises to run at once.
 
+**NOTES**:
+
+* Unless otherwise specified the default limit for `.allLimit()` calls is 1.
+* The limit number can be anywhere within the list of promises. e.g. `$q.allLimit(3, promises...)` or `$q.allLimit(promises..., 3)`
+* This module will also fire a progress notification if you need to monitor how many promises have completed
+
 
 Install
 =======
