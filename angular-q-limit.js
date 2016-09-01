@@ -39,9 +39,7 @@ angular.module('angular-q-limit', [])
 								queue.completed++;
 								queue.running--;
 								queue.defer.notify({completed: queue.completed, count: queue.promiseCount, limit: queue.limit});
-								setTimeout(function() {
-									promiseChecker(queue);
-								}, 2000);
+								promiseChecker(queue);
 							})
 							.catch(function(err) {
 								queue.defer.reject(err);
