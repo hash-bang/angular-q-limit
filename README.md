@@ -50,3 +50,51 @@ app.controller(function($scope, $q) {
 
 });
 ```
+
+
+Examples
+========
+Each of the following examples assumes `SomeModel` is a Promise based structure like [$http](https://docs.angularjs.org/api/ng/service/$http) or [ngResource](https://docs.angularjs.org/api/ngResource/service/$resource). Each of these would perform some time consuming task like transmitting large quantities of data to or from the server.
+
+
+Defined promises
+----------------
+This example runs 3 defined promise limited to 1 item of concurrency. The example shown only lists three promises but this can be extended indefinitely with the guarantee that only 2 items can run at once.
+
+```javascript
+// Load different models and set $scope.data{1,2,3} to the return value
+// Only allow two Promises to run at once
+
+$q.limitAll(2, [
+
+	function() {
+		return SomeModel1.query().$promise
+			.then(data => $scope.data1 = data);
+	},
+	function() {
+		return SomeModel2.query().$promise
+			.then(data => $scope.data2 = data);
+	},
+	function() {
+		return SomeModel3.query().$promise
+			.then(data => $scope.data3 = data);
+	},
+
+	// More promises here ...
+
+]).then(function() { // All done // }});
+```
+
+Dynamic promise creation
+------------------------
+This example uses a dynamic array of items, creating a promise for each and finally executing them via `$q.limitAll()` with a maximum of 3 items running concurrently.
+
+```javascript
+var stuff = [ // Very big array of IDs to request // ];
+
+$q.limitAll(3,
+	stuff.map(function(item) {
+		return SomeModel.get({id: item}).$promise;
+	}),
+});
+ ```
