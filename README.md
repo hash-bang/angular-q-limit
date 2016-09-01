@@ -67,18 +67,14 @@ This example runs 3 defined promise limited to 1 item of concurrency. The exampl
 
 $q.limitAll(2, [
 
-	function() {
-		return SomeModel1.query().$promise
-			.then(data => $scope.data1 = data);
-	},
-	function() {
-		return SomeModel2.query().$promise
-			.then(data => $scope.data2 = data);
-	},
-	function() {
-		return SomeModel3.query().$promise
-			.then(data => $scope.data3 = data);
-	},
+	SomeModel1.query().$promise
+		.then(data => $scope.data1 = data),
+
+	SomeModel2.query().$promise
+		.then(data => $scope.data2 = data),
+
+	SomeModel3.query().$promise
+		.then(data => $scope.data3 = data),
 
 	// More promises here ...
 
