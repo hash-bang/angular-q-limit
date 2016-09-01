@@ -1,0 +1,24 @@
+{
+  "name": "angular-q-limit",
+  "version": "1.0.0",
+  "description": "Adds $q.allLimit() method to Angular which allows $q.all() batching",
+  "main": "angular-q-limit.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hash-bang/angular-q-limit.git"
+  },
+  "keywords": [
+    "angular",
+    "q",
+    "util"
+  ],
+  "author": "Matt Carter <m@ttcarter.com> (https://github.com/hash-bang)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hash-bang/angular-q-limit/issues"
+  },
+  "homepage": "https://github.com/hash-bang/angular-q-limit#readme",
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}
