@@ -88,7 +88,7 @@ This example uses a dynamic array of items, creating a promise for each and fina
 ```javascript
 var stuff = [ // Very big array of IDs to request // ];
 
-$q.limitAll(3,
+$q.allLimit(3,
 	stuff.map(function(item) {
 		return SomeModel.get({id: item}).$promise;
 	}),
