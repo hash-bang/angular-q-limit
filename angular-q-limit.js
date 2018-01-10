@@ -1,6 +1,6 @@
 angular.module('angular-q-limit', [])
-.config(['$provide' ,function($provide) {
-	$provide.decorator('$q', function($delegate) {
+.config(['$provide', function($provide) {
+	$provide.decorator('$q', ['$delegate', function($delegate) {
 
 		/**
 		* Execute $q.all() with limits
@@ -63,5 +63,5 @@ angular.module('angular-q-limit', [])
 		};
 
 		return $delegate;
-	});
+	}]);
 }]);
