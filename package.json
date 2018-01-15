@@ -1,6 +1,6 @@
 {
   "name": "angular-q-limit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Adds $q.allLimit() method to Angular which allows $q.all() batching",
   "main": "angular-q-limit.js",
   "repository": {
