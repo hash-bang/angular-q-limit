@@ -33,7 +33,7 @@ angular.module('angular-q-limit', [])
 				while (queue.promisesRemaining.length > 0 && queue.running < queue.limit) {
 					var promiseRunner = function(thisPromise, promiseIndex) {
 						queue.running++;
-						thisPromise()
+						thisPromise
 							.then(function(data) {
 								queue.output[promiseIndex] = data;
 								queue.completed++;
